@@ -4,12 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Collocations</title>
+     <link rel="stylesheet" href="{% static 'collocations/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div class="p-2 mb-2">
+    <nav class="navbar navbar-expand navbar-dark rounded sticky-top" id="nav">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="navbar-brand ml-3 mr-3" href="{% url 'index' %}" id="brand-img">
+                <img src="{% static 'collocations/images/soroka.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">Collocations</a>
+        </div>
+
+        <div class="dropdown" id="brand-m">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{% static 'collocations/images/soroka.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'index' %}" id="dropdown-item">Все новости</a>
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <a class="navbar-brand ml-3 mr-3" href="#">
+                <img src="{% static 'collocations/images/feedback.png' %}" width="30" height="30" class="#" alt=""></a>
+        </div>
+    </nav>
+  </div>
+
+
 {% block content %}
 
 
 {% endblock %}
+
+<script src="{% static 'collocations/js/jquery-3.4.1.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="{% static 'collocations/js/bootstrap.js' %}"></script>
+<script src="{% static 'collocations/js/script.js' %}"></script>
 
 </body>
 </html>
