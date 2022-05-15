@@ -1,0 +1,27 @@
+{% extends "collocations/base/base.html" %}
+{% load static %}
+{% block content %}
+
+        <div class="#" id="login_form">
+            <form method="post" class="m-3">
+                {% csrf_token %}
+              <p id='login_text'>Sign in</p>
+              <input type="hidden" name="next" value="{{ next }}">
+              <div class="form-group">
+                <label>{{form.username.label}}</label>
+                <p>{{form.username}}</p>
+              </div>
+              <div class="form-group">
+                <label>{{form.password.label}}</label>
+                <p>{{form.password}}</p>
+              </div>
+              <div>
+                      {% for error in form.non_field_errors %}
+                       <p class="errors">{{ error|escape }}</p>
+                      {% endfor %}
+              </div>
+              <button type="submit" class="btn btn-primary" id="login_button">Login</button>
+            </form>
+        </div>
+
+{% endblock %}
