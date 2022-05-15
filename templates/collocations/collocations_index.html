@@ -1,0 +1,31 @@
+{% extends "collocations/base/base.html" %}
+{% load static %}
+{% block content %}
+
+<table class="table bg-info table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" id="category">Category</th>
+      <th scope="col" id="phrase">Phrase</th>
+      <th scope="col" id="translation">Translation</th>
+      <th scope="col" id="published">Published</th>
+      <th scope="col" id="actions">Actions</th>
+    </tr>
+  </thead>
+  {% for record in records %}
+  <tbody>
+  {% if record %}
+    <tr class="bg-light text-dark">
+      <td>{{record.category}}</td>
+      <td>{{record.phrase}}</td>
+      <td>{{record.translation}}</td>
+      <td>{{record.publish}}</td>
+      <td><a class="btn btn-secondary" href="#">edit</a></td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}
