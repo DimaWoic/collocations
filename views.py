@@ -24,14 +24,21 @@ class UserLogoutView(LoginRequiredMixin, LogoutView):
     next_page = 'login'
 
 
-class CollocationsIndexView(LoginRequiredMixin, ListView):
-    queryset = Collocation.objects.all()
+class CollocationsIndexView(LoginRequiredMixin, CreateView):
+    model = Collocation
     template_name = 'collocations/collocations_index.html'
     template_name_suffix = '_index'
-    context_object_name = 'records'
     login_url = reverse_lazy('login')
+    fields = ['phrase', 'translation', 'category']
+    success_url = reverse_lazy('index')
 
     def get_login_url(self, **kwargs):
         super().get_login_url(**kwargs)
         login_url = reverse_lazy('login')
         return login_url
+
+    def get_context_data(self, **kwargs):
+        context = super(CollocationsIndexView, self).get_context_data()
+        context['records'] = self.model.objects.all()
+        return context
+

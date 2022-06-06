@@ -40,8 +40,11 @@
   </div>
   <div class="container" id="container">
 
-{% block content %}
+{% block title %}
 
+{% endblock %}
+
+{% block content %}
 
 {% endblock %}
   </div>
@@ -50,6 +53,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="{% static 'collocations/js/bootstrap.js' %}"></script>
 <script src="{% static 'collocations/js/script.js' %}"></script>
+<script>
+    $('#myModal').modal({
+  keyboard: false
+})
+</script>
 
 </body>
 </html>
